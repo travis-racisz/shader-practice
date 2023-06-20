@@ -11,13 +11,13 @@ import { Uniforms } from './types/types';
 	renderer: THREE.WebGLRenderer, 
 	analyser: THREE.AudioAnalyser, 
 	controls: OrbitControls,
-	light: THREE.AmbientLight,
+	// light: THREE.AmbientLight,
 	uniforms: Uniforms,
-	points: THREE.Points,
+	// points: THREE.Points,
 	sphere: THREE.Mesh<THREE.SphereGeometry, THREE.MeshBasicMaterial>;
 
 	
-	const geometry = new THREE.SphereGeometry(1, 32, 16);
+	// const geometry = new THREE.SphereGeometry(1, 32, 16);
 	const boxes: THREE.Mesh<THREE.BoxGeometry, THREE.MeshPhongMaterial>[] = []; 
 	const color = new THREE.Color(); 
 	const n = 75, n2 = n / 2
@@ -202,6 +202,6 @@ import { Uniforms } from './types/types';
 		can assign each one to the value from the music, then animate the points to change position based on the audio wave value
 		*/
 
-		function createPoints(): void{ 
+		// function createPoints(): void{ 
 
-		}
+		// }
