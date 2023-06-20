@@ -13,7 +13,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
+html { 
+  margin: 0;
+}
 #waveform{ 
   height: 500px; 
   width: 500px;
