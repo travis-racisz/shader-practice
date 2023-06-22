@@ -4,7 +4,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js"
 import audioVertexShader from './shaders/audioVertexShader.glsl'
 //@ts-ignore
 import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
-import { Uniforms } from './types/types';
+import { Uniforms } from './types/types.ts';
 
 	let scene:THREE.Scene = new THREE.Scene(), 
 	camera: THREE.PerspectiveCamera, 
