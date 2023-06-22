@@ -11,6 +11,7 @@ import { Uniforms } from './types/types';
 	renderer: THREE.WebGLRenderer, 
 	analyser: THREE.AudioAnalyser, 
 	controls: OrbitControls,
+	file: any,
 	// light: THREE.AmbientLight,
 	uniforms: Uniforms,
 	// points: THREE.Points,
@@ -23,6 +24,12 @@ import { Uniforms } from './types/types';
 	const n = 75, n2 = n / 2
 	const particles = 64; 
 	const colors = [];
+	// const audioElement = document.getElementById("song-upload")
+	// audioElement?.addEventListener("change", (e) => { 
+	// 	// Cannot play media. No decoders for requested formats: text/html
+	// 	console.log(e.target)
+	// 	file = e?.target?.value
+	// })
 
 	for( let i = 0; i < particles; i++){ 
 		const boxGeometry = new THREE.BoxGeometry(5, 5, 5)

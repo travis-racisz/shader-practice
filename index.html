@@ -9,13 +9,18 @@
   </head>
   <body>
     <div id="overlay">
+      <div class = "upload-file-container"> 
+        <label>Upload the song you want to listen to.</label>
+        <input type = "file" accept="audio/*" name = "song" id = "song-upload" />
+
+      </div>
 			<button id="startButton">Play</button>
 		</div>
 		<div id="container"></div>
 		<div id="info">
 		
 		</div>
-    <script type="module" src="/src/main.ts"></script>
-    <script type = 'module' src = "/src/audio.ts"></script>
+    <script type="module" src="./src/main.ts"></script>
+    <script type = 'module' src = "./src/audio.ts"></script>
   </body>
 </html>
