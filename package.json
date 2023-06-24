@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "three": "^0.152.2",
-    "vite-plugin-string": "^1.2.1",
-    "wavesurfer.js": "^7.0.0-beta.7"
+    "vite-plugin-string": "^1.2.1"
   }
 }

@@ -4,22 +4,21 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js"
 import audioVertexShader from './shaders/audioVertexShader.glsl'
 //@ts-ignore
 import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
-import { Uniforms } from './types/types.ts';
 
-	let scene:THREE.Scene = new THREE.Scene(), 
-	camera: THREE.PerspectiveCamera, 
-	renderer: THREE.WebGLRenderer, 
-	analyser: THREE.AudioAnalyser, 
-	controls: OrbitControls,
-	file: any,
+	let scene = new THREE.Scene(), 
+	camera, 
+	renderer, 
+	analyser, 
+	controls,
+	file,
 	// light: THREE.AmbientLight,
-	uniforms: Uniforms,
+	uniforms,
 	// points: THREE.Points,
-	sphere: THREE.Mesh<THREE.SphereGeometry, THREE.MeshBasicMaterial>;
+	sphere
 
 	
 	// const geometry = new THREE.SphereGeometry(1, 32, 16);
-	const boxes: THREE.Mesh<THREE.BoxGeometry, THREE.MeshPhongMaterial>[] = []; 
+	const boxes = []; 
 	const color = new THREE.Color(); 
 	const n = 75, n2 = n / 2
 	const particles = 64; 
