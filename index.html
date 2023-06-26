@@ -2,18 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/shader-practice/vite.svg" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Vite + TS</title>
-    <script type="module" crossorigin src="/assets/index-a4a926a7.js"></script>
-    <link rel="stylesheet" href="/assets/index-48297a42.css">
+    <script type="importmap">
+      {
+          "imports": {
+              "three": "./build/three.module.js",
+              "three/examples/jsm/controls/OrbitControls":"./jsm/controls/OrbitControls.js"
+          }
+      }
+  </script>
+    <script type="module" crossorigin src="/shader-practice/assets/index-3d1c474c.js"></script>
+    <link rel="stylesheet" href="/shader-practice/assets/index-48297a42.css">
   </head>
   <body>
     <div id="overlay">
       <div class = "upload-file-container"> 
         <label>Upload the song you want to listen to.</label>
         <input type = "file" accept="audio/*" name = "song" id = "song-upload" />
+        <audio id = "audio" controls hidden></audio>
 
       </div>
 			<button id="startButton">Play</button>
@@ -22,7 +32,6 @@
 		<div id="info">
 		
 		</div>
-    
     
   </body>
 </html>
