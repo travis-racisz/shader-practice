@@ -34,11 +34,13 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 			audioElement.src = URL.createObjectURL(files[0])
 			audioElement?.load()
 			audioElement?.removeAttribute("hidden")
+			document.getElementById("play-button")?.removeAttribute('hidden')
+			document.getElementById("pause-button")?.removeAttribute('hidden')
+			init()
 		}
 	})
 
-	console.log(audioElement?.src)
-
+	
 	for( let i = 0; i < particles; i++){ 
 		const boxGeometry = new THREE.BoxGeometry(5, 5, 5)
 		const boxMaterial = new THREE.MeshPhongMaterial()
@@ -67,8 +69,8 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 	}
 	
 
-	const startButton = document.getElementById( 'startButton' );
-	startButton?.addEventListener( 'click', init );
+	// const startButton = document.getElementById( 'startButton' );
+	// startButton?.addEventListener( 'click', init );
 
 	function init() {
 
@@ -101,6 +103,7 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 			const listener = new THREE.AudioListener();
 
 			const audio = new THREE.Audio( listener );
+			audio.hasPlaybackControl
 			const file = audioElement?.src;
 
 			if ( /(iPad|iPhone|iPod)/g.test( navigator.userAgent ) ) {
@@ -111,6 +114,7 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 
 					audio.setBuffer( buffer );
 					audio.play();
+					setUpControls(audio)
 
 				} );
 
@@ -118,6 +122,7 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 
 				const mediaElement = new Audio( file );
 				mediaElement.play();
+				setUpControls(mediaElement)
 
 				audio.setMediaElementSource( mediaElement );
 
@@ -200,6 +205,19 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 
 			renderer.render( scene, camera );
 
+		}
+
+		function setUpControls(audio: THREE.Audio | HTMLAudioElement): void{ 
+			console.log('setting up controls')
+			document.getElementById('play-button')?.addEventListener('click', function(){ 
+				console.log('play')
+				audio.play()
+			})
+
+			document.getElementById('pause-button')?.addEventListener('click', function(){ 
+				console.log('pause')
+				audio.pause()
+			})
 		}
 
 

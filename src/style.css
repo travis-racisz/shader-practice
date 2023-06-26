@@ -102,6 +102,24 @@ button {
 button:hover {
   border-color: #646cff;
 }
+
+
+
+.controls{ 
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 35%;
+  
+  flex-direction: row;
+  position: absolute;
+  bottom: 10%;
+  right: 32%; 
+}
+
+.pause-button{ 
+
+}
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
