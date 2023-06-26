@@ -11,7 +11,7 @@ import { Uniforms } from './types/types.ts';
 	renderer: THREE.WebGLRenderer, 
 	analyser: THREE.AudioAnalyser, 
 	controls: OrbitControls,
-	file: any,
+	// file: any,
 	// light: THREE.AmbientLight,
 	uniforms: Uniforms,
 	// points: THREE.Points,
