@@ -23,11 +23,13 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 	const n = 75, n2 = n / 2
 	const particles = 64; 
 	const colors = [];
+	// @ts-ignore
 	const audioElement: HTMLAudioElement | null = document.getElementById("audio")
 	const fileElement = document.getElementById("song-upload")
 	fileElement?.addEventListener("change", (e) => { 
 		// Cannot play media. No decoders for requested formats: text/html
 		if(audioElement){ 
+			// @ts-ignore
 			const files = e.target?.files
 			audioElement.src = URL.createObjectURL(files[0])
 			audioElement?.load()
@@ -104,6 +106,7 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 			if ( /(iPad|iPhone|iPod)/g.test( navigator.userAgent ) ) {
 
 				const loader = new THREE.AudioLoader();
+				// @ts-ignore
 				loader.load( file, function ( buffer ) {
 
 					audio.setBuffer( buffer );
