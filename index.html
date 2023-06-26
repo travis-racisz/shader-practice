@@ -20,6 +20,7 @@
       <div class = "upload-file-container"> 
         <label>Upload the song you want to listen to.</label>
         <input type = "file" accept="audio/*" name = "song" id = "song-upload" />
+        <audio id = "audio" controls hidden></audio>
 
       </div>
 			<button id="startButton">Play</button>
@@ -28,6 +29,6 @@
 		<div id="info">
 		
 		</div>
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/main.ts"></script>
   </body>
 </html>

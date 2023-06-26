@@ -23,12 +23,19 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 	const n = 75, n2 = n / 2
 	const particles = 64; 
 	const colors = [];
-	// const audioElement = document.getElementById("song-upload")
-	// audioElement?.addEventListener("change", (e) => { 
-	// 	// Cannot play media. No decoders for requested formats: text/html
-	// 	console.log(e.target)
-	// 	file = e?.target?.value
-	// })
+	const audioElement: HTMLAudioElement | null = document.getElementById("audio")
+	const fileElement = document.getElementById("song-upload")
+	fileElement?.addEventListener("change", (e) => { 
+		// Cannot play media. No decoders for requested formats: text/html
+		if(audioElement){ 
+			const files = e.target?.files
+			audioElement.src = URL.createObjectURL(files[0])
+			audioElement?.load()
+			audioElement?.removeAttribute("hidden")
+		}
+	})
+
+	console.log(audioElement?.src)
 
 	for( let i = 0; i < particles; i++){ 
 		const boxGeometry = new THREE.BoxGeometry(5, 5, 5)
@@ -56,16 +63,6 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 		scene.add( boxMesh )
 
 	}
-
-	// geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( positions, 3 ) );
-	// geometry.setAttribute( 'color', new THREE.Float32BufferAttribute( colors, 3 ) );
-
-	// geometry.computeBoundingSphere();
-
-	// const material = new THREE.PointsMaterial( { size: 15, vertexColors: true } );
-
-	// points = new THREE.Points( geometry, material );
-	// scene.add( points );
 	
 
 	const startButton = document.getElementById( 'startButton' );
@@ -102,7 +99,7 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 			const listener = new THREE.AudioListener();
 
 			const audio = new THREE.Audio( listener );
-			const file = './src/assets/flume.mp3';
+			const file = audioElement?.src;
 
 			if ( /(iPad|iPhone|iPod)/g.test( navigator.userAgent ) ) {
 
@@ -181,7 +178,7 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 			// returns array of 64 bit data 
 
 			analyser.getFrequencyData();
-			console.log(analyser.data, 'data')
+			// console.log(analyser.data, 'data')
 			controls.update()
 			controls.autoRotate = true
 	
