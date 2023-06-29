@@ -20,8 +20,10 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 	// const geometry = new THREE.SphereGeometry(1, 32, 16);
 	const boxes: THREE.Mesh<THREE.BoxGeometry, THREE.MeshPhongMaterial>[] = []; 
 	const color = new THREE.Color(); 
-	const n = 75, n2 = n / 2
-	const particles = 64; 
+	const n:number = 75, n2: number = n / 2
+	// let row: number = 0, zLevel: number = 0, col: number = 0
+	let x: number = 0, y: number = 0, z: number = 0
+	const particles:number = 64; 
 	const colors = [];
 	// @ts-ignore
 	const audioElement: HTMLAudioElement | null = document.getElementById("audio")
@@ -41,15 +43,39 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 	})
 
 	
-	for( let i = 0; i < particles; i++){ 
+	for( let i = 0; i <= particles; i++ ){ 
 		const boxGeometry = new THREE.BoxGeometry(5, 5, 5)
 		const boxMaterial = new THREE.MeshPhongMaterial()
 		const boxMesh = new THREE.Mesh( boxGeometry, boxMaterial )
 		
+		
+	// 		if(row >= 4){ 
+	// 			x = col * 20
+	// 			y = row * 20
+	// 			z = zLevel * 20
+	// 			row = 0
+	// 			col++
+				
+	// 		} else { 
+	// 			row++
+	// 			if(col >= 4){ 
+	// 				col = 0
+	// 				zLevel++
+	// 			} 
+	// 			x = col * 20
+	// 			y = row * 20
+	// 			z = zLevel * 20
+	// 		}
+
+		
+		
+
+		console.log(x, y, z)
+
 		// particle positions 
-		const x = Math.random() * n - n2
-		const y = Math.random() * n - n2
-		const z = Math.random() * n - n2
+		x = Math.random() * n - n2
+		y = Math.random() * n - n2
+		z = Math.random() * n - n2
 		boxMesh.position.x = x
 		boxMesh.position.y = y 
 		boxMesh.position.z = z
@@ -95,6 +121,8 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 			
 			camera = new THREE.PerspectiveCamera();
 			camera.position.z = 150
+			camera.position.x = 10
+			camera.position.y = 10
 			const light = new THREE.AmbientLight()
 			
 			//
@@ -153,6 +181,9 @@ import audioFragmentShader from "./shaders/audioFragmentShader.glsl"
 		// fragmentShader: audioFragmentShader
 	});
 			sphere = new THREE.Mesh( sphereGeometry, sphereMesh )
+			// sphere.position.x = 40
+			// sphere.position.y = 40
+			// sphere.position.z = 40
 			// const geometry = new THREE.PlaneGeometry( 1, 1 );
 
 			// const mesh = new THREE.Mesh( geometry, material );
