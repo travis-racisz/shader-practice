@@ -15,21 +15,27 @@
           }
       }
   </script>
-    <script type="module" crossorigin src="/shader-practice/assets/index-3d1c474c.js"></script>
-    <link rel="stylesheet" href="/shader-practice/assets/index-48297a42.css">
+    <script type="module" crossorigin src="/shader-practice/assets/index-53289adc.js"></script>
+    <link rel="stylesheet" href="/shader-practice/assets/index-521080db.css">
   </head>
   <body>
     <div id="overlay">
       <div class = "upload-file-container"> 
         <label>Upload the song you want to listen to.</label>
         <input type = "file" accept="audio/*" name = "song" id = "song-upload" />
-        <audio id = "audio" controls hidden></audio>
+        <audio id = "audio" hidden></audio>
 
       </div>
-			<button id="startButton">Play</button>
+			<!-- <button id="startButton">Play</button> -->
 		</div>
-		<div id="container"></div>
-		<div id="info">
+		<div id="container">
+      <!-- <h1> Hello World</h1> -->
+      
+    </div>
+    <div class="controls" > 
+      <button  hidden id="play-button">play</button>
+      <button hidden id="pause-button">pause</button>
+    </div>
 		
 		</div>
     
